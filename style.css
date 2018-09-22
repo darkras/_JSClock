@@ -64,41 +64,6 @@ body {
 }
 
 .hand {
-    transition: transform;
+    transition: transform 0.5s cubic-bezier(.58, 2.35, .8, .44);
     transform-origin: bottom;
 }
-
-.second-hand {
-    transition-duration: 60s;
-    transform: rotate(360deg);
-}
-
-
-.min-hand {
-    transition-duration: 3600s;
-    transform: rotate(360deg);
-}
-
-.hour-hand {
-    transition-duration: 86400s;
-    transform: rotate(360deg);
-}
-
-
-/* @keyframes hand {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    20% {
-        transform: rotate(7.5deg);
-    }
-
-    30% {
-        transform: rotate(6deg);
-    }
-
-    100% {
-        transform: rotate(6deg);
-    }
-} */

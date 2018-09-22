@@ -1,42 +1,22 @@
-//get current time
-document.addEventListener('DOMContentLoaded', function () {
-    var Time = new Date();
+//get elements
+var setSec = document.querySelector('.second-hand');
+var setMin = document.querySelector('.min-hand');
+var setHour = document.querySelector('.hour-hand');
 
-    //get hour
-    var hour = 0;
+//set current time
+function setDate() {
+    const time = new Date();
+    const sec = time.getSeconds();
+    const min = time.getMinutes();
+    const hour = time.getHours();
+    const secDeg = ((sec / 60) * 360);
+    const minDeg = ((min / 60) * 360);
+    const hourDeg = ((hour / 12) * 360);
 
-    function getHour() {
-        hour = Time.getHours();
-        if (hour > 12) {
-            hour -= 12;
-        }
-        return hour * 30;
-    }
+    setSec.style.transform = 'rotate(' + secDeg + 'deg)';
+    setMin.style.transform = 'rotate(' + minDeg + 'deg)';
+    setHour.style.transform = 'rotate(' + hourDeg + 'deg)';
+}
 
-
-    //get min
-    var min = 0;
-
-    function getMin() {
-        min = Time.getMinutes();
-        return (min * 6);
-    }
-
-    //get sec
-    var sec = 0;
-
-    function getSec() {
-        sec = Time.getSeconds();
-        return (sec * 6);
-    }
-
-    var setSec = document.querySelector('.second-hand');
-    setSec.style.transform = 'rotate(' + getSec() + 'deg)';
-
-    var setMin = document.querySelector('.min-hand');
-    setMin.style.transform = 'rotate(' + getMin() + 'deg)';
-
-    var setHour = document.querySelector('.hour-hand');
-    setHour.style.transform = 'rotate(' + getHour() + 'deg)';
-
-})
+//check for current time every 1s
+setInterval(setDate, 1000);
