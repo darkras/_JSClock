@@ -1,0 +1,104 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    min-width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #d1d8e0, #4b6584);
+}
+
+.clock {
+    position: relative;
+    grid-area: 2/2/3/3;
+    align-items: center;
+}
+
+.clock-face {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vh;
+    height: 40vh;
+    border-radius: 50%;
+    border: 10px solid #3867d6;
+}
+
+.hour-hand {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    width: 2%;
+    height: 40%;
+    background: black;
+    z-index: 1;
+}
+
+.min-hand {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    width: 2%;
+    height: 48%;
+    background: white;
+    z-index: 2;
+}
+
+.second-hand {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    width: 2%;
+    height: 45%;
+    background: red;
+    z-index: 5;
+
+}
+
+.hand {
+    transition: transform;
+    transform-origin: bottom;
+}
+
+.second-hand {
+    transition-duration: 60s;
+    transform: rotate(360deg);
+}
+
+
+.min-hand {
+    transition-duration: 3600s;
+    transform: rotate(360deg);
+}
+
+.hour-hand {
+    transition-duration: 86400s;
+    transform: rotate(360deg);
+}
+
+
+/* @keyframes hand {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(7.5deg);
+    }
+
+    30% {
+        transform: rotate(6deg);
+    }
+
+    100% {
+        transform: rotate(6deg);
+    }
+} */
