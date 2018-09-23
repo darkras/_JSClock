@@ -1,3 +1,9 @@
+:root {
+    --secNum: 0;
+    --minNum: 0;
+    --hourNum: 0;
+}
+
 *,
 *::before,
 *::after {
@@ -8,16 +14,28 @@
 
 body {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     min-width: 100vw;
     min-height: 100vh;
-    background: linear-gradient(45deg, #d1d8e0, #4b6584);
+    background: linear-gradient(to top left, #141E30, #243b55);
+}
+
+.clock-number {
+    border: 3px solid black;
+    border-radius: 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37vh;
+    height: 37vh;
+    z-index: 100;
 }
 
 .clock {
     position: relative;
-    grid-area: 2/2/3/3;
+    grid-area: 2/2/4/4;
     align-items: center;
 }
 
@@ -29,7 +47,19 @@ body {
     width: 40vh;
     height: 40vh;
     border-radius: 50%;
-    border: 10px solid #3867d6;
+    border: 15px solid #CCC8C5;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 10px rgba(204, 200, 197, 0.4),
+        inset 10px 10px 10px rgba(204, 200, 197, 0.3),
+        inset 15px 15px 10px rgba(204, 200, 197, 0.2);
+    z-index: 1;
+}
+
+.hand {
+    border-radius: 5px;
+    transition: transform 500ms cubic-bezier(.58, 2.35, .8, .44);
+    transform-origin: bottom;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .hour-hand {
@@ -37,9 +67,9 @@ body {
     bottom: 50%;
     left: 50%;
     width: 2%;
-    height: 40%;
+    height: 35%;
     background: black;
-    z-index: 1;
+    z-index: 2;
 }
 
 .min-hand {
@@ -48,8 +78,8 @@ body {
     left: 50%;
     width: 2%;
     height: 48%;
-    background: white;
-    z-index: 2;
+    background: black;
+    z-index: 3;
 }
 
 .second-hand {
@@ -58,12 +88,6 @@ body {
     left: 50%;
     width: 2%;
     height: 45%;
-    background: red;
-    z-index: 5;
-
-}
-
-.hand {
-    transition: transform 0.5s cubic-bezier(.58, 2.35, .8, .44);
-    transform-origin: bottom;
+    background: #8D1C20;
+    z-index: 1;
 }
